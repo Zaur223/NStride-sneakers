@@ -1,0 +1,125 @@
+@mixin btn {
+    width: 300px;
+    height: 70px;
+    border: 4px solid #fff;
+    background-color: rgba(0,0,0,0);
+    border-radius: 12px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.container {
+    width: 1320px;
+    margin: 0 auto;
+    &.pos {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.promo {
+    height: 100vh;
+    background-image: url('../../public/images/background.jpg');
+    &_menu {
+        display: flex;
+        align-items: center;
+        gap: 133px;
+        &_li {
+            display: flex;
+            gap: 97px;
+            list-style-type: none;
+            a {
+                text-decoration: none;
+                color: #fff;
+            }
+        }
+        
+    }
+    &_login {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        width: 124px;
+        height: 38px;
+        background-color: #fff;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        
+    }
+    .nav {
+        display: flex;
+        align-items: center;
+        height: 85px;
+        background-color: #211313;
+        opacity: 0.9;
+    }
+
+    .content_wrapper {
+        display: flex;
+        gap: 200px;
+        margin-top: 95px;
+        color: #fff;
+        &-text {
+            width: 505px;
+            padding-top: 60px;
+        }
+        &-maintext {
+            font-family: 'Exo 2';
+            font-size: 55px;
+            line-height: 65px;
+        }
+        &-subtext {
+            margin-top: 90px;
+            font-size: 20px;
+            line-height: 35px;
+        }
+        &-btn {
+            @include btn
+            margin: 60px 0 0 20px;
+            font-size: 16px;
+        }
+        &-img {
+            position: relative;
+            .nike {
+                position: absolute;
+                left: -33px;
+                top: -10px;
+                width: 650px;
+                animation: sneaker 3s ease-out infinite;
+                &-back {
+                    height: 664px;
+                }
+            }
+            
+        
+    }
+}
+
+.hamburger {
+    display: none;
+    span {
+        display: block;
+        width: 35px;
+        height: 2px;
+        background-color: #fff;
+        margin: 7px;
+    }
+}
+
+@keyframes sneaker {
+    0% {
+        top: -10px;
+    }
+    50% {
+        top: 10px;
+    }
+    100% {
+        top: -10px;
+    }
+}
+}
+
+@import 'media'
