@@ -1,0 +1,11 @@
+.promo {
+    height: 100vh;
+    background-image: url('../../public/images/background.jpg');
+}
+
+@media (max-width: 768px) {
+    .promo {
+        height: unset;
+        background-repeat: no-repeat;
+    }
+}
