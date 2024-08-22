@@ -1,6 +1,11 @@
 .promo {
     height: 100vh;
     background-image: url('../../public/images/background.jpg');
+    background-repeat: no-repeat;
+}
+
+.sneakers {
+    width: 100%;
 }
 
 @media (max-width: 768px) {

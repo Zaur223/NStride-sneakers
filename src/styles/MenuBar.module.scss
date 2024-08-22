@@ -1,0 +1,47 @@
+.bar {
+    display: none;
+    .menu {
+        &_li {
+            list-style-type: none;
+            li {
+                margin: 50px 60px;
+                padding-bottom: 10px;
+            }
+            a {
+                text-decoration: none;
+                color: #fff;
+                font-size: 20px;
+            }
+        }
+        &_login {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            height: 40px;
+        }
+    } 
+}
+
+@media (max-width: 768px) {
+    .bar {
+        display: flex;
+        justify-content: center;
+        width: 70%;
+        height: 100vh;
+        background-color: rgba(0,0,0,0.95);
+        z-index: 10;
+        position: fixed;
+        left: -100%;
+        transition: 0.6s all;
+    }
+    .active {
+        left: 0;
+    }
+}
+
+@media (max-width: 420px) {
+    .bar {
+        width: 75%;
+    }
+}

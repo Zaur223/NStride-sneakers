@@ -1,20 +1,12 @@
-import { useState } from 'react';
-import styles from '../styles/NavMenu.module.scss';
+import styles from '../styles/MenuBar.module.scss';
 
-function NavMenu({onHamburger}) {
-    const [isHamburgerActive, setIsHamburgerActive] = useState(false);
 
-    const hamburgerToggle = () => {
-        setIsHamburgerActive(prevHamburger => !prevHamburger)
-        onHamburger(isHamburgerActive)
-    }
+function MenuBar({isHamburgerActive}) {
 
-    const hamburgerStyle = isHamburgerActive ? `${styles.active}` : ``
+    const barStyle = isHamburgerActive ? `` : `${styles.active}`
 
-   return (
-    <nav className={styles.nav}>
-        <div className={styles.container}>
-            <a href="#"><img src='/images/Logo.png' /></a>
+    return (
+        <div className={`${styles.bar} ${barStyle}`}>
             <div className={styles.menu}>
                 <ul className={styles['menu_li']}>
                     <li><a href='#'>Our Store</a></li>
@@ -26,14 +18,8 @@ function NavMenu({onHamburger}) {
                     <span>sing up</span>
                 </button>
             </div>
-            <div className={`${styles.hamburger} ${hamburgerStyle}`} onClick={hamburgerToggle}>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-            </div>
         </div>
-    </nav>
-   )
+    )
 }
 
-export default NavMenu;
+export default MenuBar;
