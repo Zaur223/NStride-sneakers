@@ -14,9 +14,9 @@ function Info() {
                     <button className={styles.btn}><span>Show now</span></button>
                 </div>
                 <div className={styles.images}>
-                    <img src="images/nike1.png" />
-                    <img src="images/nike2.png" />
-                    <img src="images/nike3.png" />
+                    <img src="images/nike1.png" alt=""/>
+                    <img src="images/nike2.png" alt=""/>
+                    <img src="images/nike3.png" alt=""/>
                 </div>
             </div>
         </div>

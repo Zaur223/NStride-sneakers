@@ -12,7 +12,7 @@ function Promo() {
 				<Header />
 				<PromoContent />
 			</div>
-			<img className={styles.sneakers} src='/images/image_sneakers.png' />
+			<img className={styles.sneakers} src='/images/image_sneakers.png' alt="" />
 		</Fragment>
     )
 }

@@ -11,13 +11,13 @@ function AboutUs() {
                     </div>
                     <div className={styles.images}>
                         <div className={styles.images_col1}>
-                            <img src="images/about-us_img1.png" />
-                            <img src="images/about-us_img2.png" />
-                            <img src="images/about-us_img3.png" />
+                            <img src="images/about-us_img1.png" alt=""/>
+                            <img src="images/about-us_img2.png" alt=""/>
+                            <img src="images/about-us_img3.png" alt=""/>
                         </div>
                         <div className={styles.images_col2}>
-                            <img src="images/about-us_img4.png" />
-                            <img src="images/about-us_img5.png" />
+                            <img src="images/about-us_img4.png" alt=""/>
+                            <img src="images/about-us_img5.png" alt=""/>
                         </div>
                     </div>
                 </div>

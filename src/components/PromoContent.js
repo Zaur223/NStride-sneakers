@@ -10,8 +10,8 @@ function PromoContent() {
                     <button className={styles['content_wrapper-btn']}><span>Learn More</span></button>
                 </div>
                 <div className={styles['content_wrapper-img']}>
-                    <img className={styles['nike-back']} src='/images/sneaker_fon.png' />
-                    <img className={styles.nike} src='/images/Nike_Air_Max_Plus.png' />
+                    <img className={styles['nike-back']} src='/images/sneaker_fon.png' alt=""/>
+                    <img className={styles.nike} src='/images/Nike_Air_Max_Plus.png' alt=""/>
                 </div>
             </div>
         </div>
