@@ -1,12 +1,13 @@
-import { useState } from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import styles from '../styles/NavMenu.module.scss';
+import { mainActions } from '../store/main-slice';
 
-function NavMenu({onHamburger}) {
-    const [isHamburgerActive, setIsHamburgerActive] = useState(false);
+function NavMenu() {
+    const dispatchAction = useDispatch()
+    const isHamburgerActive = useSelector(state => state.main.isHamburgerActive)
 
     const hamburgerToggle = () => {
-        setIsHamburgerActive(prevHamburger => !prevHamburger)
-        onHamburger(isHamburgerActive)
+        dispatchAction(mainActions.hamburgerActive())
     }
 
     const hamburgerStyle = isHamburgerActive ? `${styles.active}` : ``

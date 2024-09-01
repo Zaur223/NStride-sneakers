@@ -1,9 +1,11 @@
+import { useSelector } from 'react-redux';
 import styles from '../styles/MenuBar.module.scss';
 
 
-function MenuBar({isHamburgerActive}) {
+function MenuBar() {
+    const isHamburgerActive = useSelector(state => state.main.isHamburgerActive)
 
-    const barStyle = isHamburgerActive ? `` : `${styles.active}`
+    const barStyle = !isHamburgerActive ? `` : `${styles.active}`
 
     return (
         <div className={`${styles.bar} ${barStyle}`}>
