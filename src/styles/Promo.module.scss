@@ -1,11 +1,19 @@
 .promo {
-    height: 100vh;
+    min-height: 1080px;
     background-image: url('../../public/images/background.jpg');
     background-repeat: no-repeat;
 }
 
 .sneakers {
     width: 100%;
+}
+
+@media (max-width: 1200px) {
+    .promo {
+        min-height: 900px;
+        height: unset;
+        background-repeat: no-repeat;
+    }
 }
 
 @media (max-width: 768px) {

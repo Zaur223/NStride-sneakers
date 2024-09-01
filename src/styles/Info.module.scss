@@ -5,9 +5,9 @@
 
 .info {
     margin-top: -4px;
-    height: 100vh;
+    min-height: 1060px;
     background-image: url('../../public/images/background2.png');
-    background-position: center;
+    background-repeat: no-repeat;
     .text {
         display: flex;
         flex-direction: column;
@@ -94,6 +94,7 @@
         width: 720px;
     }
     .info {
+        min-height: 900px;
         .text {
             .maintext {
                 font-size: 35px;
@@ -131,6 +132,7 @@
         width: 540px;
     }
     .info {
+        min-height: 770px;
         .text {
             width: 533px;
         }

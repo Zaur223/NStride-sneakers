@@ -4,7 +4,7 @@
 }
 
 .aboutUs {
-    height: 108vh;
+    min-height: 1080px;
     background-image: url('../../public/images/background3.png');
     .wrapper {
         display: flex;
@@ -78,6 +78,7 @@
         width: 720px;
     }
     .aboutUs {
+        min-height: 900px;
         .wrapper {
             .text {
                 .title {
@@ -104,6 +105,7 @@
         width: 540px;
     }
     .aboutUs {
+        min-height: 770px;
         padding-top: 0;
         .wrapper {
             .images {
@@ -128,6 +130,7 @@
         width: 100%;
     }
     .aboutUs {
+        min-height: 670px;
         .wrapper {
             justify-content: center;
             gap: 30px;
