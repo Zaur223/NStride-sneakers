@@ -25,12 +25,14 @@
         gap: 49px;
         margin-top: 110px;
         list-style-type: none;
-        a {
-            text-decoration: none;
-            color: #fff;
-            transition: 0.5s;
-            &:hover {
-                color: rgb(255, 149, 0);
+        li {
+            a {
+                text-decoration: none;
+                color: #fff;
+                transition: 0.5s;
+                &:hover {
+                    color: rgb(255, 149, 0);
+                }
             }
         }
     }

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import styles from '../styles/Footer.module.scss';
 
 function Footer() {
@@ -13,10 +14,10 @@ function Footer() {
                     </div>
                 </div>
                 <ul>
-                    <a href="/"><li>Our store</li></a>
-                    <a href="/"><li>About us</li></a>
-                    <a href="/"><li>Company</li></a>
-                    <a href="/"><li>Contact</li></a>
+                    <li><Link to="/sale">Our store</Link></li>
+                    <li><a href="/">About us</a></li>
+                    <li><a href="/">Company</a></li>
+                    <li><a href="/">Contact</a></li>
                 </ul>
                 <span></span>
             </div>

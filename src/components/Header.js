@@ -3,7 +3,6 @@ import MenuBar from "./MenuBar";
 
 function Header() {
 
-
     return (
         <header>
             <MenuBar />

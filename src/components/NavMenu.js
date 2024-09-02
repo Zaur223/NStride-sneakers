@@ -1,4 +1,5 @@
 import {useDispatch, useSelector} from 'react-redux';
+import {Link} from 'react-router-dom/cjs/react-router-dom.min';
 import styles from '../styles/NavMenu.module.scss';
 import { mainActions } from '../store/main-slice';
 
@@ -18,7 +19,7 @@ function NavMenu() {
             <a href="/"><img src='/images/Logo.png' alt=""/></a>
             <div className={styles.menu}>
                 <ul className={styles['menu_li']}>
-                    <li><a href='/'>Our Store</a></li>
+                    <li><Link to='/sale'>Our Store</Link></li>
                     <li><a href='/'>About Us</a></li>
                     <li><a href='/'>Contact</a></li>
                 </ul>
