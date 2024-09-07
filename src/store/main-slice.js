@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     isHamburgerActive: false,
     isSaleHamburgerClick: false,
+    isInputActive: false,
 }
 
 const mainSlice = createSlice({
@@ -14,6 +15,9 @@ const mainSlice = createSlice({
         },
         saleHamburgerClick(state) {
             state.isSaleHamburgerClick = !state.isSaleHamburgerClick;
+        },
+        inputActive(state) {
+            state.isInputActive = !state.isInputActive
         }
     }
 })

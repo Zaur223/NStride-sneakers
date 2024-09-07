@@ -1,9 +1,14 @@
+import { Fragment } from "react";
+import SaleContent from "./SaleContent";
 import Header from "./Header";
 
 
 const Sale = function() {
     return (
-        <Header />
+        <Fragment>
+            <Header />
+            <SaleContent />
+        </Fragment>
     )
 }
 
