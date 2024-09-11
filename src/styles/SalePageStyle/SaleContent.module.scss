@@ -4,8 +4,13 @@
 }
 
 .content {
-    min-height: 1669px;
+    min-height: 1800px;
     background-color: #191919;
+    &_wrapper {
+        display: grid;
+        grid-template-columns: 318px 953px;
+        column-gap: 48px;
+    }
 }
 
 
