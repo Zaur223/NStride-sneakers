@@ -18,11 +18,24 @@
     .container {
         width: 1140px;
     }
+    
+    .content {
+        &_wrapper {
+            grid-template-columns: 298px 793px;
+        }
+    }
 }
 
 @media (max-width: 1200px) {
     .container {
         width: 960px;
+    }
+
+    .content {
+        &_wrapper {
+            grid-template-columns: 298px 526px;
+            justify-content: center;
+        }
     }
 }
 
@@ -30,17 +43,36 @@
     .container {
         width: 720px;
     }
+
+    .content {
+        &_wrapper {
+            grid-template-columns: 161px 509px;
+        }
+    }
 }
 
 @media (max-width: 768px) {
     .container {
         width: 540px;
     }
+
+    .content {
+        min-height: 2292px;
+            &_wrapper {
+            grid-template-columns: 509px;
+        }
+    }
 }
 
 @media (max-width: 576px) {
     .container {
         width: 100%;
+    }
+    .content {
+        min-height: 1985px;
+        &_wrapper {
+            grid-template-columns: 320px;
+        }
     }
 }
 

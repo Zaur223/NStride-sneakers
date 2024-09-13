@@ -26,3 +26,31 @@
         margin-top: 50px;
     }
 }
+
+@media (max-width: 1400px) {
+    .sneakers {
+        &_wrapper {
+            padding: 0;
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    .sneakers {
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .sneakers {
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 576px) {
+    .sneakers {
+        &_wrapper {
+            gap: 20px;
+        }
+    }
+}

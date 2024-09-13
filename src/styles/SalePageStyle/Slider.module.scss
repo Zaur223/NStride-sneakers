@@ -64,8 +64,9 @@
     .slider_block {
         padding-top: 40px;
         .slider {
+            height: 144px;
             &-indicators {
-                bottom: 132px;
+                bottom: 8px;
             }
             &-indicators {
                 .dot {
@@ -81,7 +82,7 @@
     .slider_block {
         .slider {
             &-indicators {
-                bottom: 160px;
+                bottom: 48px;
             }
         }
     }

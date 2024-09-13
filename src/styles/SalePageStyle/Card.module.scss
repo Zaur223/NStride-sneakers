@@ -1,4 +1,6 @@
 .card {
+    width: 230px;
+    max-height: 238px;
     position: relative;
     .favorite {
         position: absolute;
@@ -11,11 +13,10 @@
         transition: all .2s ease;
         
     }
-    width: 230px;
-    max-height: 238px;
     .image_block {
         display: flex;
         justify-content: center;
+        align-items: center;
         background-color: #fff;
         border-radius: 9px;
         width: 100%;
@@ -47,6 +48,28 @@
     &:hover {
         .favorite {
             opacity: 1;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        width: 150px;
+        .image_block {
+            img {
+                width: 150px;
+                height: 84px;
+            }
+        }
+        .title {
+            font-size: 14px;
+            margin-top: 8px;
+        }
+        .subtitle {
+            font-size: 10px;
+        }
+        .price {
+            font-size: 16px;
         }
     }
 }

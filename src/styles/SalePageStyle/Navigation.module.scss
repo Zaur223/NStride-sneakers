@@ -98,3 +98,36 @@
         
     }
 }
+
+@media (max-width: 991px) {
+    .navigation {
+        margin-top: 89px;
+        &_item {
+            .filter_name {
+                font-size: 14px;
+            }
+            .price_value {
+                font-size: 14px;
+            }
+        }
+        .catalog {
+            font-size: 14px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .navigation {
+        &_item {
+            width: 300px;
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .navigation {
+        display: block;
+        margin: 0 auto;
+        padding-top: 80px;
+    }
+}
