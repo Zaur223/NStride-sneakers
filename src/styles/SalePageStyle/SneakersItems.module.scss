@@ -3,6 +3,7 @@
     .filter {
         display: flex;
         justify-content: flex-end;
+        position: relative;
         &_sort {
             display: flex;
             align-items: center;
@@ -16,10 +17,48 @@
             border: 1px solid #fff;
             cursor: pointer;
         }
+        &_block {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            position: absolute;
+            top: 53px;
+            width: 136px;
+            max-height: 200px;
+            background-color: #d9d9d9;
+            color: #595959;
+            border-radius: 6px;
+            z-index: 10;
+            span {
+                display: block;
+                padding: 6px 0;
+                font-size: 14px;
+                border-bottom: 1px solid #595959;
+                cursor: pointer;
+                &:last-child {
+                    border-bottom: 0;
+                }
+                &:after {
+                    content: '';
+                    position: absolute;
+                    top: -6px;
+                    right: 20px;
+                    width: 13px;
+                    height: 13px;
+                    background-color: #d9d9d9;
+                    transform: rotate(45deg);
+                }
+            }
+        }
+        .hide {
+            opacity: 0;
+        }
+        .expand {
+            opacity: 1;
+        }
     }
     &_wrapper {
         display: flex;
-        justify-content: space-between;
         padding: 0 67px;
         gap: 49px;
         flex-wrap: wrap;

@@ -1,21 +1,34 @@
-import {useState} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { catalogActions } from '../../store/catalog-slice';
 import styles from '../../styles/SalePageStyle/Navigation.module.scss';
 
 const Navigation = function() {
-    const [isCatalogActive, setIsCatalogActive] = useState(false);
-    const [isPriceActive, setIsPriceActive] = useState(false);
-    const [priceValue, setPriceValue] = useState(50)
+    const dispatchAction = useDispatch();
+    const isCatalogActive = useSelector(state => state.catalog.isCatalogActive);
+    const isPriceActive = useSelector(state => state.catalog.isPriceActive);
+    const priceLimit = useSelector(state => state.catalog.priceLimit);
 
-    const catalogToggle = () => {
-        setIsCatalogActive(prevIsCatalogActive => !prevIsCatalogActive);
+    const catalogSwiching = () => {
+        dispatchAction(catalogActions.catalogToggle())
     }
 
-    const priceToggle = () => {
-        setIsPriceActive(prevIsPriceActive => !prevIsPriceActive);
+    const priceSwiching = () => {
+        dispatchAction(catalogActions.priceToggle())
     }
     
     const priceHandler = (event) => {
-        setPriceValue(event.target.value)
+        const {value} = event.target;
+        dispatchAction(catalogActions.priceChange(value));
+    }
+
+    const checkboxChangeHander = (event) => {
+        const {value, checked} = event.target;
+
+        if (checked) {
+            dispatchAction(catalogActions.addItems(value));
+        } else {
+            dispatchAction(catalogActions.removeItems(value));
+        }
     }
 
     const switchCatalogStyle = isCatalogActive ? `${styles.expand}` : `${styles.hide}`;
@@ -26,37 +39,62 @@ const Navigation = function() {
     return (
         <div className={styles.navigation}>
             <div className={`${styles['navigation_item']} ${styles.catalog} ${catalogClass}`}>
-                <span className={`${styles['filter_name']}`} onClick={catalogToggle}>PRODUCT LINE</span>
+                <span className={`${styles['filter_name']}`} onClick={catalogSwiching}>PRODUCT LINE</span>
                 <span className={`${styles['navigation-toggle']} ${switchCatalogStyle}`}></span>
                 <ul>
                     <li>
-                        <input type='checkbox' id="check1" />
+                        <input 
+                            type='checkbox' 
+                            id="check1" 
+                            value="Nike Blazer" 
+                            onChange={checkboxChangeHander} 
+                        />
                         <label htmlFor="check1">Nike Blazer</label>
                     </li>
                     <li>
-                        <input type='checkbox' id="check2" />
+                        <input 
+                            type='checkbox' 
+                            id="check2" 
+                            value="Nike Air Force" 
+                            onChange={checkboxChangeHander}
+                        />
                         <label htmlFor="check2">Nike Air Force</label>
                     </li>
                     <li>
-                        <input type='checkbox' id="check3" />
+                        <input 
+                            type='checkbox' 
+                            id="check3" 
+                            value="Nike Air Max Plus" 
+                            onChange={checkboxChangeHander} 
+                        />
                         <label htmlFor="check3">Nike Air Max Plus</label>
                     </li>
                     <li>
-                        <input type='checkbox' id="check4" />
+                        <input 
+                            type='checkbox' 
+                            id="check4" 
+                            value="Nike FG" 
+                            onChange={checkboxChangeHander} 
+                        />
                         <label htmlFor="check4">Nike FG</label>
                     </li>
                     <li>
-                        <input type='checkbox' id="check5" />
+                        <input 
+                            type='checkbox' 
+                            id="check5" 
+                            value="Nike Kobe" 
+                            onChange={checkboxChangeHander} 
+                        />
                         <label htmlFor="check5">Nike Kobe</label>
                     </li>
                 </ul>
             </div>
             
             <div className={`${styles['navigation_item']} ${styles.price} ${priceClass}`}>
-                <span className={`${styles['filter_name']}`} onClick={priceToggle}>PRICE</span>
+                <span className={`${styles['filter_name']}`} onClick={priceSwiching}>PRICE</span>
                 <span className={`${styles['navigation-toggle']} ${switchPriceStyle}`}></span>
-                <span className={styles['price_value']}>0$ - {priceValue}$</span>
-                <input type="range" min='0' max='10000' value={priceValue} onChange={priceHandler} className={styles['price_range']}/>
+                <span className={styles['price_value']}>0$ - {priceLimit}$</span>
+                <input type="range" min='0' max='2000' value={priceLimit} onChange={priceHandler} className={styles['price_range']}/>
             </div>
         </div>
     )
