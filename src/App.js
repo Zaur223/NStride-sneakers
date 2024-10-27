@@ -5,6 +5,8 @@ import Info from './components/Info';
 import AboutUs from './components/AboutUs';
 import Footer from './components/Footer';
 import Sale from './pages/salepage/Sale';
+import NotReadyPage from './pages/NotReadyPage';
+import Auth from './pages/auth/Auth';
 
 
 function App() {
@@ -18,6 +20,12 @@ function App() {
       </Route>
       <Route path="/sale">
         <Sale />
+      </Route>
+      <Route path="/notReadyPage">
+        <NotReadyPage />
+      </Route>
+      <Route path="/auth">
+        <Auth />
       </Route>
     </Switch>
   );

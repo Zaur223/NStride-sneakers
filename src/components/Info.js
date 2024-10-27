@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import styles from '../styles/Info.module.scss';
 
 function Info() {
@@ -6,13 +7,15 @@ function Info() {
             <div className={styles.container}>
                 <div className={styles['info_wrapper']}>
                     <div className={styles.text}>
-                        <h2 className={styles.maintext}>Lorem ipsum</h2>
+                        <h2 className={styles.maintext}>About our store</h2>
                         <ul>
-                            <li className={styles.subtext}>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</li>
-                            <li className={styles.subtext}>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </li>
-                            <li className={styles.subtext}>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. </li>
+                            <li className={styles.subtext}>Here you’ll find a vast selection of sneakers for every need and style.</li>
+                            <li className={styles.subtext}>Discover the latest models, unique designs, and trusted brands that offer the perfect balance of comfort, quality, and fashion. </li>
+                            <li className={styles.subtext}>Looking for sneakers for workouts, casual strolls, or outdoor adventures? We have exactly what you need! Explore our catalog, choose your perfect pair, and feel confident with every step.</li>
                         </ul>
-                        <button className={styles.btn}><span>Show now</span></button>
+                        <Link to="/sale">
+                            <button className={styles.btn}><span>Show now</span></button>
+                        </Link>
                     </div>
                     <div className={styles.image}>
                         <img src='images/nitro_site.png' alt='' />

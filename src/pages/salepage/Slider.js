@@ -1,5 +1,5 @@
+import React, { useEffect, useState } from "react";
 import styles from '../../styles/SalePageStyle/Slider.module.scss';
-import React, { useState } from "react";
 
 const Slider = () => {
   const slides = [
@@ -10,6 +10,19 @@ const Slider = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      goToNextSlide()
+    }, 3000)
+
+    return () => clearInterval(interval)
+  }, [currentIndex]);
+
+
+  const goToNextSlide = () => {
+    setCurrentIndex((prevIndex) => prevIndex === slides.length - 1 ? 0 : prevIndex + 1)
+  }
 
   const goToSlide = (index) => {
     setCurrentIndex(index);

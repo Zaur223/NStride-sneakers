@@ -1,6 +1,9 @@
 .bar {
     display: none;
     .menu {
+        .btn_link {
+            text-decoration: none;
+        }
         &_li {
             list-style-type: none;
             li {

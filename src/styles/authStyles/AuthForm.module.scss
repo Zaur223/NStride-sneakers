@@ -1,0 +1,105 @@
+.form_block {
+    position: relative;
+}
+
+.form {
+    margin-left:93px;
+    padding-top: 20px;
+    .input_block {
+        position: relative;
+        margin-bottom: 35px;
+        padding-left: 35px;
+        input {
+            width: 238px;
+            height: 32px;
+            padding-left: 15px;
+            border: 0;
+            border-radius: 12px;
+            outline: none;
+        }
+    }
+    &_icon {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    p {
+        margin-left: 35px;
+        color: #fff;
+        a {
+            margin-left: 5px;
+            color: #00D9FF;
+        }
+    }
+    &_btn {
+        margin: 20px 0 0 35px;
+        width: 124px;
+        height: 36px;
+        border: 0; 
+        border-radius: 12px;
+        cursor: pointer;
+    }
+}
+
+.google_login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 235px;
+    gap: 5px;
+    width: 167px;
+    height: 36px;
+    margin-left: 35px;
+    border: 0; 
+    border-radius: 12px;
+    cursor: pointer;
+    img {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+@media (max-width: 991px) {
+    .form {
+        p {
+            margin-left: 0;
+        }
+        &_btn {
+            margin-left: 0; 
+        }
+    }
+    .google_login {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 850px) {
+    .form {
+        margin-left: 0;
+    }
+    .google_login {
+        left: 140px;
+    }
+}
+
+@media (max-width: 576px) {
+    .form {
+        p {
+            text-align: center;
+        }
+        &_btn {
+            display: block;
+            margin: 20px auto 0 auto;
+        }
+    }
+    .google_login {
+        position: unset;
+        margin: 20px auto 0 auto;
+    }
+}
+
+@media (max-width: 320px) {
+}

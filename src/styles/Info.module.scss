@@ -135,7 +135,7 @@
                     width: 234px;
                     height: 56px;
                     font-size: 14px;
-                    bottom: 50px;
+                    bottom: 38px;
                 }
             }
             .image {
@@ -210,5 +210,18 @@
             }
         }
         
+    }
+}
+
+@media (max-width: 320px) {
+    .info {
+        &_wrapper {
+            .image {
+                img {
+                    width: 288px;
+                    margin-left: 32px;
+                }
+            }
+        }
     }
 }
