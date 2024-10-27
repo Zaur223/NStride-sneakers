@@ -13,16 +13,11 @@ const Slider = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      goToNextSlide()
-    }, 3000)
+      setCurrentIndex((prevIndex) => (prevIndex === slides.length - 1 ? 0 : prevIndex + 1));
+    }, 3000);
 
-    return () => clearInterval(interval)
-  }, [currentIndex]);
-
-
-  const goToNextSlide = () => {
-    setCurrentIndex((prevIndex) => prevIndex === slides.length - 1 ? 0 : prevIndex + 1)
-  }
+    return () => clearInterval(interval);
+  }, [slides.length]); // только slides.length в зависимостях
 
   const goToSlide = (index) => {
     setCurrentIndex(index);
@@ -30,25 +25,25 @@ const Slider = () => {
 
   return (
     <div className={styles['slider_block']}>
-        <div className={styles.slider}>
+      <div className={styles.slider}>
+        <div
+          className={styles["slider-inner"]}
+          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+        >
+          {slides.map((slide, index) => (
+            <img key={index} src={slide} alt="" />
+          ))}
+        </div>
+        <div className={styles['slider-indicators']}>
+          {slides.map((_, index) => (
             <div
-                className={styles["slider-inner"]}
-                style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-            >
-            {slides.map((slide, index) => (
-                <img key={index} src={slide} alt=""/>
-            ))}
+              key={index}
+              className={`${styles.dot} ${currentIndex === index ? `${styles.active}` : ''}`}
+              onClick={() => goToSlide(index)}
+            />
+          ))}
         </div>
-            <div className={styles['slider-indicators']}>
-                {slides.map((_, index) => (
-                <div
-                    key={index}
-                    className={`${styles.dot} ${currentIndex === index ? `${styles.active}` : ''}`}
-                    onClick={() => goToSlide(index)}
-                />
-                ))}
-            </div>
-        </div>
+      </div>
     </div>
   );
 };
