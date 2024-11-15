@@ -9,7 +9,7 @@
     margin-top: 95px;
     color: #fff;
     &-text {
-        width: 505px;
+        width: 514px;
         padding-top: 60px;
     }
     &-maintext {
@@ -147,7 +147,7 @@
             width: 320px;
         }
         &-maintext {
-            font-size: 35px;
+            font-size: 34px;
             line-height: 45px;        
         }
     }
@@ -160,6 +160,7 @@
     .content_wrapper {
         flex-direction: column;
         align-items: center;
+        margin-top: 45px;
         .nike {
             width: 343px;
             &-back {

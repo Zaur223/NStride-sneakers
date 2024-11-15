@@ -18,7 +18,7 @@ function Info() {
                         </Link>
                     </div>
                     <div className={styles.image}>
-                        <img src='images/nitro_site.png' alt='' />
+                        <img src='images/nstride_site.png' alt='' />
                     </div>
                 </div>
             </div>

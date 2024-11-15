@@ -6,7 +6,7 @@ function Footer() {
         <footer className={styles.footer}>
             <div className={styles.container}>
                 <div className={styles.logos}>
-                    <a href="/"><img className={styles.logo} src="images/nitro.svg" alt=""/></a>
+                    <a href="/"><img className={styles.logo} src="images/nstride.svg" alt=""/></a>
                     <div className={styles.media}>
                         <a href="/"><img src="images/instagram.svg" alt=""/></a>
                         <a href="/"><img src="images/facebook.svg" alt=""/></a>

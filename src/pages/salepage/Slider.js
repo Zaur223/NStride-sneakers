@@ -17,7 +17,7 @@ const Slider = () => {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [slides.length]); // только slides.length в зависимостях
+  }, [slides.length]);
 
   const goToSlide = (index) => {
     setCurrentIndex(index);
