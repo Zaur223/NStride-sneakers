@@ -2,6 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     formToggle: false,
+    signUp: false,
+    Login: false,
 }
 
 const formSlice = createSlice({
@@ -16,6 +18,9 @@ const formSlice = createSlice({
         },
         loginButton(state) {
             state.formToggle = true;
+        },
+        signUpControl(state) {
+            state.signUp = !state.signUp;
         }
     }
 })
