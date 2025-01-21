@@ -32,21 +32,20 @@ const SignUp = function() {
         
 
         const newErrors = {
-            userName: userName.trim().length !== 0,
-            email: email.includes('@'),
-            pwd: pwd.length !== 0,
-            confirmPwd: confirmPwd.length !== 0 && confirmPwd === pwd
+            userName: userName.trim().length === 0,
+            email: !email.includes('@'),
+            pwd: pwd.length === 0,
+            confirmPwd: confirmPwd !== pwd
         }
 
         setErr(newErrors);
 
-        let isErrorClass
-
-        if (newErrors.userName == false || newErrors.email == false || newErrors.pwd == false || newErrors.confirmPwd == false) {
+        if (newErrors.userName == true || newErrors.email == true || newErrors.pwd == true || newErrors.confirmPwd == true) {
             
-            return    // class'lari duzelt !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            return
         }
-        console.log('form')
+        
+        
     }
 
     const formClass = formToggle ? `${styles.hide}` : `${styles.active}`;

@@ -1,6 +1,7 @@
 import {Fragment} from 'react';
 import styles from '../../styles/SalePageStyle/Header.module.scss';
 import SaleMenu from './SaleMenu';
+import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { useDispatch, useSelector } from 'react-redux';
 import { mainActions } from '../../store/main-slice';
 
@@ -40,8 +41,12 @@ const Header = function() {
                         </div>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" onClick={inputHandler} className={styles.search_mobile} viewBox="0 0 16 16" id="Search--Streamline-Bootstrap" height="20" width="20"><desc>Search Streamline Icon: https://streamlinehq.com</desc><path d="M11.742 10.344a6.5 6.5 0 1 0 -1.397 1.398h-0.001q0.044 0.06 0.098 0.115l3.85 3.85a1 1 0 0 0 1.415 -1.414l-3.85 -3.85a1 1 0 0 0 -0.115 -0.1zM12 6.5a5.5 5.5 0 1 1 -11 0 5.5 5.5 0 0 1 11 0" strokeWidth="1"></path></svg>
                         <div className={styles.auth}>
-                            <button className={styles.login}>Login</button>
-                            <button className={styles.sign}>Sign Up</button>
+                            <Link to="/auth">
+                                <button className={styles.login}>Login</button>
+                            </Link>
+                            <Link to="/auth">
+                                <button className={styles.sign}>Sign Up</button>
+                            </Link>
                         </div>
                     </div>
                 </div>
