@@ -40,7 +40,7 @@ const SignUp = function() {
 
         setErr(newErrors);
 
-        if (newErrors.userName == true || newErrors.email == true || newErrors.pwd == true || newErrors.confirmPwd == true) {
+        if (newErrors.userName === true || newErrors.email === true || newErrors.pwd === true || newErrors.confirmPwd === true) {
             
             return
         }
