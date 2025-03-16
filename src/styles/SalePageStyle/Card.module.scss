@@ -11,6 +11,14 @@
         gap: 10px;
         opacity: 0;
         transition: all .2s ease;
+        .cart:hover {
+            fill: red;
+            cursor: pointer;
+        }
+        .heart:hover {
+            fill: red;
+            cursor: pointer;
+        }
         
     }
     .image_block {

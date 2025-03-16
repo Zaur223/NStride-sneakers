@@ -37,11 +37,33 @@
         .favorite {
             display: flex;
             gap: 42px;
+            position: relative;
+            &_list {
+                position: absolute;
+                width: 300px;
+                height: 300px;
+                border-radius: 6px;
+                background-color: #ffffff;
+                padding: 10px;
+                overflow-y: scroll;
+                &_cart {
+                    z-index: 10;
+                    left: -50px;
+                    top: 35px;
+                }
+                &_heart {
+                    z-index: 10;
+                    top: 35px;
+                }
+            }
             .cart {
                 cursor: pointer;
             }
             .heart {
                 cursor: pointer;
+            }
+            .product_title {
+                margin-bottom: 20px; 
             }
         } 
         .auth {
