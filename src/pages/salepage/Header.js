@@ -4,12 +4,13 @@ import SaleMenu from './SaleMenu';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import { useDispatch, useSelector } from 'react-redux';
 import { mainActions } from '../../store/main-slice';
-import DUMMY_SNEAKERS from '../../data/dummySneakers';
 import ProductsList from './ProductList';
 
 const Header = function() {
-    const dispatchAction = useDispatch()
-    const isInputActive = useSelector(state => state.main.isInputActive)
+    const dispatchAction = useDispatch();
+    const isInputActive = useSelector(state => state.main.isInputActive);
+    const productList = useSelector(state => state.product.productList);
+
 
     const [isActiveHeart, setIsActiveHeart] = useState(false)
     const [isActiveCart, setIsActiveCart] = useState(false)
@@ -56,7 +57,7 @@ const Header = function() {
                             <div className={`${styles.favorite_list} ${styles.favorite_list_cart}`}>
                                 <p className={styles.product_title}>Products in the basket</p>  
                                 <ul>
-                                    {DUMMY_SNEAKERS.map((obj) => (
+                                    {productList.map((obj) => (
                                         <ProductsList 
                                             key={obj.id}
                                             imgURL={obj.imgURL}
@@ -71,7 +72,7 @@ const Header = function() {
                             <div className={`${styles.favorite_list} ${styles.favorite_list_heart}`}>
                                 <p className={styles.product_title}>Your favorites</p>
                                 <ul>
-                                    {DUMMY_SNEAKERS.map((obj) => (
+                                    {productList.map((obj) => (
                                         <ProductsList 
                                             key={obj.id}
                                             imgURL={obj.imgURL}

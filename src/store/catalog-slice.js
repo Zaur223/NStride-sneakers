@@ -10,7 +10,7 @@ const initialState = {
 const catalogSlice = createSlice({
     name: "catalog",
     initialState,
-    reducers: {
+    reducers: { 
         addItems(state, action) {
             state.selectedItems.push(action.payload);
         },
