@@ -9,7 +9,8 @@ import ProductsList from './ProductList';
 const Header = function() {
     const dispatchAction = useDispatch();
     const isInputActive = useSelector(state => state.main.isInputActive);
-    const productList = useSelector(state => state.product.productList);
+    const favoriteList = useSelector(state => state.product.favoriteList);
+    const cardList = useSelector(state => state.product.cardList);
 
 
     const [isActiveHeart, setIsActiveHeart] = useState(false)
@@ -57,9 +58,9 @@ const Header = function() {
                             <div className={`${styles.favorite_list} ${styles.favorite_list_cart}`}>
                                 <p className={styles.product_title}>Products in the basket</p>  
                                 <ul>
-                                    {productList.map((obj) => (
+                                    {cardList.map((obj, index) => (
                                         <ProductsList 
-                                            key={obj.id}
+                                            key={`${obj.id} ${index}`}
                                             imgURL={obj.imgURL}
                                             title={obj.title}
                                             price={obj.price}
@@ -72,9 +73,9 @@ const Header = function() {
                             <div className={`${styles.favorite_list} ${styles.favorite_list_heart}`}>
                                 <p className={styles.product_title}>Your favorites</p>
                                 <ul>
-                                    {productList.map((obj) => (
+                                    {favoriteList.map((obj, index) => (
                                         <ProductsList 
-                                            key={obj.id}
+                                            key={`${obj.id} ${index}`}
                                             imgURL={obj.imgURL}
                                             title={obj.title}
                                             price={obj.price}
