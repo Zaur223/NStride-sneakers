@@ -31,7 +31,9 @@ const SneakersItems = function() {
         return isPriceValid && isSelectedValid;
     });
 
+
     const filterClass = isHidden ? `${styles.expand}` : `${styles.hide}`
+    
     return (
         <div className={styles.sneakers}>
             <div className={styles.filter}>

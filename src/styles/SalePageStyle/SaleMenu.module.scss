@@ -45,9 +45,28 @@
         .favorite {
             display: flex;
             gap: 30px;
-            margin: 40px 20px 20px 50px;
+            margin: 40px 50px 20px 50px;
+            position: relative;
+            &_list {
+                position: absolute;
+                width: 100%;
+                height: 300px;
+                border-radius: 6px;
+                background-color: #ffffff;
+                padding: 10px;
+                overflow-y: scroll;
+                &_cart {
+                    z-index: 10;
+                    left: -30px;
+                    top: 42px;
+                }
+                &_heart {
+                    z-index: 10;
+                    top: 42px;
+                }
+            }
         }
-        ul {
+        &_links {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -86,11 +105,38 @@
     }
 }
 
+@media (max-width: 768px) {
+    .menu {
+        .favorite {
+            &_list {
+                width: 300px;
+                &_cart {
+                    left: -40px;
+                }
+                &_heart {
+                    left: -40px;
+                }
+            }
+        }
+    }
+}
+
 @media (max-width: 576px) {
     .menu {
         width: 100%;
         &_header {
             width: 60%;
+        }
+        .favorite {
+            &_list {
+                width: 300px;
+                &_cart {
+                    left: -40px;
+                }
+                &_heart {
+                    left: -40px;
+                }
+            }
         }
     }
 }

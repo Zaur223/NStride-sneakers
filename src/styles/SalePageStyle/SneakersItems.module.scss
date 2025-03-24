@@ -31,7 +31,7 @@
             z-index: 10;
             span {
                 display: block;
-                padding: 6px 0;
+                padding: 6px 10px;
                 font-size: 14px;
                 border-bottom: 1px solid #595959;
                 cursor: pointer;
@@ -51,10 +51,10 @@
             }
         }
         .hide {
-            opacity: 0;
+            display: none;
         }
         .expand {
-            opacity: 1;
+            display: block;
         }
     }
     &_wrapper {
