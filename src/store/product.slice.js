@@ -12,15 +12,15 @@ const productSlice = createSlice({
     initialState,
     reducers: {
         favorite(state, action) {
-            const index = action.payload
-            const selectedSneakers = DUMMY_SNEAKERS.find(item => item.id - 1 === index)
+            const id = action.payload
+            const selectedSneakers = DUMMY_SNEAKERS.find(item => item.id === id)
             if (selectedSneakers && !state.favoriteList.some(item => item.id === selectedSneakers.id)) {
                 state.favoriteList.push(selectedSneakers)
             }
         },
         card(state, action) {
-            const index = action.payload
-            const selectedSneakers = DUMMY_SNEAKERS.find(item => item.id - 1 === index)
+            const id = action.payload
+            const selectedSneakers = DUMMY_SNEAKERS.find(item => item.id === id)
             if (selectedSneakers && !state.cardList.some(item => item.id === selectedSneakers.id)) {
                 state.cardList.push(selectedSneakers)
             }

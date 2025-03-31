@@ -6,11 +6,11 @@ const Card = (props) => {
     const dispatchAction = useDispatch();
 
     const addToFavorite = () => {
-        dispatchAction(productActions.favorite(props.index))
+        dispatchAction(productActions.favorite(props.id))
     }
 
     const addToCard = () => {
-        dispatchAction(productActions.card(props.index))
+        dispatchAction(productActions.card(props.id))
     }
 
     return (

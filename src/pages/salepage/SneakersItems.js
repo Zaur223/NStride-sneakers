@@ -47,10 +47,10 @@ const SneakersItems = function() {
                 </div>
             </div>
             <div className={styles.sneakers_wrapper}>
-                {generalFilter.map((obj, index) => (
+                {generalFilter.map((obj) => (
                     <Card
                         key={obj.id}
-                        index={index}
+                        id={obj.id}
                         imgURL={obj.imgURL}
                         title={obj.title}
                         subtitle={obj.subtitle}

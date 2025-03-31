@@ -29,8 +29,7 @@ const SaleMenu = function() {
         setIsActiveCart(false)
     }
 
-
-
+    
     const menuStyle = hamburgerClicked ? `${styles.active}` : '';
 
     return (
