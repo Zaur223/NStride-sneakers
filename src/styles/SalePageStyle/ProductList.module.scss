@@ -1,3 +1,7 @@
+li {
+    cursor: pointer;
+}
+
 .product {
     display: flex;
     gap: 20px;
@@ -29,6 +33,6 @@
 
 @media (max-width: 576px) {
     li {
-        padding-bottom: 0;  //// bunu duzelt !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        padding-bottom: 0;
     }
 }

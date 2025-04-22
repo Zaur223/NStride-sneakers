@@ -7,6 +7,7 @@ import Footer from './components/Footer';
 import Sale from './pages/salepage/Sale';
 import NotReadyPage from './pages/NotReadyPage';
 import Auth from './pages/auth/Auth';
+import SneakersPage from './pages/SneakersPage';
 
 
 function App() {
@@ -26,6 +27,9 @@ function App() {
       </Route>
       <Route path="/auth">
         <Auth />
+      </Route>
+      <Route path="/sneakers">
+        <SneakersPage />
       </Route>
     </Switch>
   );

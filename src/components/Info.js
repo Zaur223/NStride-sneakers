@@ -13,7 +13,7 @@ function Info() {
                             <li className={styles.subtext}>Discover the latest models, unique designs, and trusted brands that offer the perfect balance of comfort, quality, and fashion. </li>
                             <li className={styles.subtext}>Looking for sneakers for workouts, casual strolls, or outdoor adventures? We have exactly what you need! Explore our catalog, choose your perfect pair, and feel confident with every step.</li>
                         </ul>
-                        <Link to="/sale">
+                        <Link to="/sale" onClick={() => window.scrollTo(0,0)}>
                             <button className={styles.btn}><span>Show now</span></button>
                         </Link>
                     </div>

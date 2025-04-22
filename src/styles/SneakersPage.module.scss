@@ -1,0 +1,192 @@
+body {
+    background-color: #191919;
+}
+
+.container {
+    width: 1320px;
+    margin: 0 auto;
+}
+
+.sneakers {
+    display: flex;
+    justify-content: center;
+    gap: 68px;
+    margin-top: 83px;
+    &_images {
+        display: grid;
+        grid-template-columns: 100px 620px;
+        grid-template-rows: auto auto auto auto;
+        gap: 13px;
+        width: 732px;
+        height: 439px;
+        .img_list {
+            display: flex;
+            flex-direction: column;
+            gap: 13px;
+        }
+        .test_img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100px;
+            height: 100px;
+            background-color: #ffffff;
+            border-radius: 5px;
+        }
+        .main_img {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 620px;
+            height: 439px;
+            background-color: #ffffff;
+            grid-column: 2/3;
+            grid-row: 1;
+            border-radius: 5px;
+            img {
+                width: 400px;
+            }
+        }
+    }
+    &_info {
+        width: 400px;
+        min-height: 440px;
+        padding: 25px 30px 25px 30px;
+        background-color: #2B2B2B;
+        border-radius: 5px;
+        h2 {
+            font-family: "Exo 2";
+            color: #ffffff;
+            font-size: 28px;
+        }
+        h3 {
+            margin-top: 5px;
+            color: #929292;
+        }
+        .starts {
+            margin-top: 27px;
+        }
+        .saller {
+            margin-top: 21px;
+            color: #ffffff;
+            font-size: 14px;
+            a {
+                color: #257EF3;
+            }
+        }
+        .sizes {
+            display: flex;
+            gap: 11px;
+            list-style-type: none;
+            margin-top: 48px;
+            li {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 6px;
+                width: 33px;
+                height: 33px;
+                background-color: #616161;
+                font-size: 14px;
+                color: #ffffff;
+                cursor: pointer;
+            }
+        }
+        .returns {
+            position: relative;
+            color: #ffffff;
+            margin-top: 20px;
+            padding-left: 25px;
+            img {
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+        .price {
+            margin-top: 20px;
+            color: #ffffff;
+            font-size: 20px;
+        }
+        button {
+            width: 244px;
+            height: 51px;
+            margin-top: 34px;
+            background-color: #ffffff;
+            color: #000000;
+            font-weight: 600;
+            font-size: 20px;
+            border-radius: 5px;
+            border: none;
+            transition: 0.25s all;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #959595;
+        }
+    }
+    &_comments {
+        width: 1193px;
+        min-height: 450px;
+        background-color: #2B2B2B;
+        margin: 85px auto;
+        padding: 24px 20% 24px 43px;
+        border-radius: 5px;
+        &-title {
+            font-size: 32px;
+            font-family: 'Exo 2';
+            color: #ffffff;
+        }
+        &-input {
+            background-color: rgba(0, 0, 0, 0);
+            border: none;
+            border-bottom: 3px solid #252525;
+            width: 100%;
+            padding: 2px 5px;
+            margin-top: 42px;
+            outline: none;
+            color: #ffffff;
+            transition: 0.5s all;
+        }
+        &-input:focus {
+            border-bottom: 3px solid #ffffff;
+        }
+        &-btn {
+            width: 140px;
+            height: 35px;
+            border-radius: 50px;
+            border: none;
+            margin-top: 15px;
+            background-color: #ffffff;
+            transition: 0.25s all;
+            cursor: pointer;
+        }
+        &-btn:hover {
+            background-color: #959595;
+        }
+        &-users {
+            margin-top: 65px;
+        }
+        &-user {
+            list-style-type: none;
+            margin-bottom: 30px; 
+        }
+        &-date {
+            color: #A5A5A5;
+            font-size: 13px;
+        }
+        &-name {
+            color: #ffffff;
+            margin-top: 4px;
+            font-size: 15px;
+        }
+        &-text {
+            color: #ffffff;
+            margin-top: 4px;
+            font-size: 13px;
+            line-height: 22px;
+        }
+    }
+}
+

@@ -1,14 +1,26 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import styles from '../../styles/SalePageStyle/SneakersItems.module.scss';
 import Card from './Card';
-import DUMMY_SNEAKERS from '../../data/dummySneakers';
 import { useSelector } from 'react-redux';
 
 const SneakersItems = function() {
     const selectedItems = useSelector(state => state.catalog.selectedItems);
     const priceLimit = useSelector(state => state.catalog.priceLimit);
     const [isHidden, setIsHidden] = useState(false);
-    const [sortedSneakers, setSortedSneakers] = useState(DUMMY_SNEAKERS);
+    const [sortedSneakers, setSortedSneakers] = useState([]);
+
+    useEffect(() => {
+        const fetchSneakers = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/sneakers');
+                const data = await response.json();
+                setSortedSneakers(data);
+            } catch (error) {
+                console.error('loading error:', error);
+            }
+        }
+        fetchSneakers()
+    }, [])
 
     const hideToggle = () => {
         setIsHidden(prevIsHidden => !prevIsHidden);
