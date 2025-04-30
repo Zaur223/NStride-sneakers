@@ -20,4 +20,4 @@ const poolPromise = new sql.ConnectionPool(config).connect()
 })
 .catch(err => console.error("Database connection faild", err));
 
-export {sql, poolPromise};
+export {sql, poolPromise, config};

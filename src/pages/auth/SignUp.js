@@ -23,7 +23,7 @@ const SignUp = function() {
         dispatchAction(formActions.toggle());
     }
 
-    const isFormValid = (event) => {
+    const isFormValid = async (event) => {
         event.preventDefault()
         const userName = userNameRef.current.value;
         const email = emailRef.current.value;
@@ -45,6 +45,31 @@ const SignUp = function() {
             return
         }
         
+        try {
+            const response = await fetch('http://localhost:5000/api/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    username: userName,
+                    email: email,
+                    password: pwd,
+                    role: 'buyer',
+                }),
+            });
+
+            const data = await response.json();
+            if (response.ok) {
+                alert('Registration was successful!');
+                formHandler();
+            } else {
+                alert(data.message || 'Error during registration');
+            }
+        } catch (error) {
+            console.error('Request error:', error);
+            alert('Server error');
+        }
         
     }
 

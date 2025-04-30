@@ -1,4 +1,4 @@
-import {Fragment, useState} from 'react';
+import {Fragment, useState, useEffect} from 'react';
 import styles from '../../styles/SalePageStyle/Header.module.scss';
 import SaleMenu from './SaleMenu';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
@@ -15,6 +15,21 @@ const Header = function() {
 
     const [isActiveHeart, setIsActiveHeart] = useState(false)
     const [isActiveCart, setIsActiveCart] = useState(false)
+    const [user, setUser] = useState(null);
+    const [logout, setLogout] = useState(false);
+
+    useEffect(() => {
+        const storedUser = localStorage.getItem('user');
+        if (storedUser) {
+            setUser(JSON.parse(storedUser))
+        }
+    }, [])
+
+    const logoutHandler = () => {
+        localStorage.removeItem('user');
+        window.location.reload();
+    }
+    
 
     const hamburgerToggle = () => {
         dispatchAction(mainActions.saleHamburgerClick())
@@ -33,6 +48,8 @@ const Header = function() {
         setIsActiveHeart(pervIsActiveHeart => !pervIsActiveHeart)
         setIsActiveCart(false)
     }
+
+    const logoutStyle = logout ? `${styles['user_under-active']}` : `${styles['user_under']}`;
 
     return (
         <Fragment>
@@ -86,14 +103,26 @@ const Header = function() {
                             
                         </div>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" onClick={inputHandler} className={styles.search_mobile} viewBox="0 0 16 16" id="Search--Streamline-Bootstrap" height="20" width="20"><desc>Search Streamline Icon: https://streamlinehq.com</desc><path d="M11.742 10.344a6.5 6.5 0 1 0 -1.397 1.398h-0.001q0.044 0.06 0.098 0.115l3.85 3.85a1 1 0 0 0 1.415 -1.414l-3.85 -3.85a1 1 0 0 0 -0.115 -0.1zM12 6.5a5.5 5.5 0 1 1 -11 0 5.5 5.5 0 0 1 11 0" strokeWidth="1"></path></svg>
-                        <div className={styles.auth}>
-                            <Link to="/auth">
-                                <button className={styles.login}>Login</button>
-                            </Link>
-                            <Link to="/auth">
-                                <button className={styles.sign}>Sign Up</button>
-                            </Link>
-                        </div>
+                        {user ? (
+                            <div className={styles.user} onClick={(e) => setLogout(!logout)}>
+                                <p className={styles['user_name']}>{user.username}</p>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 -0.5 16 16" fill="none" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" className="feather feather-user" id="User--Streamline-Feather" height="25" width="25"><desc>User Streamline Icon: https://streamlinehq.com</desc><path d="M12.5 13.125v-1.25a2.5 2.5 0 0 0 -2.5 -2.5H5a2.5 2.5 0 0 0 -2.5 2.5v1.25" strokeWidth="1.5"></path><path d="M5 4.375a2.5 2.5 0 1 0 5 0 2.5 2.5 0 1 0 -5 0" strokeWidth="1.5"></path></svg>
+                                <div className={logoutStyle} onClick={logoutHandler} >
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" id="Logout-Fill--Streamline-Sharp-Fill-Material" height="24" width="24"><desc>Logout Fill Streamline Icon: https://streamlinehq.com</desc><path fill="#e40202" d="M3 21V3h8.975v1.5H4.5v15h7.475v1.5H3Zm13.65 -4.625 -1.075 -1.075 2.55 -2.55H9v-1.5h9.075l-2.55 -2.55 1.075 -1.075 4.4 4.4 -4.35 4.35Z" stroke-width="0.5"></path></svg>
+                                    <p>Logout</p>
+                                </div>
+                            </div>
+                        ) : (
+                            <div className={styles.auth}>
+                                <Link to="/auth">
+                                    <button className={styles.login}>Login</button>
+                                </Link>
+                                <Link to="/auth">
+                                    <button className={styles.sign}>Sign Up</button>
+                                </Link>
+                            </div>
+                        )}
+                        
                     </div>
                 </div>
             </header>

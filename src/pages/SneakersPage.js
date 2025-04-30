@@ -17,16 +17,16 @@ const SneakersPage = function() {
 
                         <div className={styles.img_list}>
                             <div className={styles.test_img}>
-                                <img src="./images/test_img.svg" alt="" />
+                                <img src={product.imgURL} alt="" />
                             </div>
                             <div className={styles.test_img}>
-                                <img src="./images/test_img.svg" alt="" />
+                                <img src={product.imgURL} alt="" />
                             </div>
                             <div className={styles.test_img}>
-                                <img src="./images/test_img.svg" alt="" />
+                                <img src={product.imgURL} alt="" />
                             </div>
                             <div className={styles.test_img}>
-                                <img src="./images/test_img.svg" alt="" />
+                                <img src={product.imgURL} alt="" />
                             </div>
                         </div>
 

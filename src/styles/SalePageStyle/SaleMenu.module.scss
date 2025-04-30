@@ -8,6 +8,36 @@
     z-index: 10;
     left: -100%;
     transition: 0.6s all;
+    .user {
+        display: flex;
+        justify-content: center;
+        margin: 10px auto;
+        width: 230px;
+        position: relative;
+        background-color: #ffffff;
+        border-radius: 5px;
+        padding: 5px 15px;
+        transition: 0.5s;
+        cursor: pointer;
+        &_under-active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            width: 130px;
+            height: 35px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            color: #e40202;
+            position: absolute;
+            top: 50px;
+            transform: translateX(-50%);
+            left: 50%;
+        }
+        &_under {
+            display: none;
+        }
+    }
 }
 
 .active {

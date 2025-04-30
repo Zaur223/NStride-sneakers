@@ -23,6 +23,35 @@
             width: 200px;
             height: 40px;
         }
+        .user {
+            display: flex;
+            flex-direction: center;
+            justify-content: center;
+            gap: 5px;
+            position: relative;
+            background-color: #ffffff;
+            border-radius: 5px;
+            padding: 5px 15px;
+            transition: 0.5s;
+            cursor: pointer;
+            &_under-active {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                width: 130px;
+                height: 35px;
+                background-color: #ffffff;
+                border-radius: 5px;
+                color: #e40202;
+                position: absolute;
+                top: 50px;
+                 
+            }
+            &_under {
+                display: none;
+            }
+        }
     } 
 }
 
