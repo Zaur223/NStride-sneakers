@@ -33,6 +33,19 @@
                 right: 14px;
                 top: 8px;
             }
+            .search_sneakers {
+                position: absolute;
+                width: 688px;
+                height: 233px;
+                padding: 10px 20px;
+                background-color: #dadada;
+                border-radius: 5px;
+                overflow-y: scroll;
+                transform: translateX(-50%);
+                top: 45px;
+                left: 50%;
+                z-index: 10;
+            }
         }
         .favorite {
             display: flex;
@@ -188,7 +201,11 @@ nav {
             input {
                 width: 238px;
             }
+            .search_sneakers {
+                width: 400px;
+            }
         }
+        
     }
 }
 

@@ -1,0 +1,16 @@
+.sneakers {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style-type: none;
+    background-color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    &_img {
+        width: 70px;
+    }
+    &_title {
+        font-size: 15px;
+    }
+}
