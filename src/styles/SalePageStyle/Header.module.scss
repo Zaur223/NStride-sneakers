@@ -78,6 +78,34 @@
             .product_title {
                 margin-bottom: 20px; 
             }
+            .dot1 {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 14px;
+                height: 14px;
+                background-color: #ff0000;
+                border-radius: 50px;
+                font-size: 11px;
+                color: #ffffff;
+                left: 11px;
+                top: -6px;
+            }
+            .dot2 {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 14px;
+                height: 14px;
+                background-color: #ff0000;
+                border-radius: 50px;
+                font-size: 11px;
+                color: #ffffff;
+                top: -6px;
+                left: 72px;
+            }
         } 
         .auth {
             display: flex;
@@ -188,6 +216,9 @@ nav {
         }
         .favorite {
             gap: 30px;
+            .dot2 {
+                left: 60px;
+            }
         }
     }
 }
