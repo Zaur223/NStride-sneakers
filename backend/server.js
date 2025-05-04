@@ -17,6 +17,35 @@ app.get('/sneakers', async (req, res) => {
     }
 })
 
+app.post('/api/sneakers', async (req, res) => {
+    const { imgURL, type, title, subtitle, price } = req.body;
+  
+    if (!imgURL || !type || !title || !price) {
+      return res.status(400).json({ message: 'Missing required fields' });
+    }
+  
+    try {
+      const pool = await poolPromise;
+  
+      await pool.request()
+        .input('imgURL', sql.NVarChar, imgURL)
+        .input('type', sql.NVarChar, type)
+        .input('title', sql.NVarChar, title)
+        .input('subtitle', sql.NVarChar, subtitle || '')
+        .input('price', sql.Int, Number(price))
+        .query(`
+          INSERT INTO sneakers (imgURL, type, title, subtitle, price)
+          VALUES (@imgURL, @type, @title, @subtitle, @price)
+        `);
+  
+      res.status(201).json({ message: 'Product added successfully!' });
+  
+    } catch (error) {
+      console.error('Insert error:', error);
+      res.status(500).json({ message: 'Server error' });
+    }
+  });
+
 
 app.post('/api/register', async (req, res) => {
     const { username, email, password, role } = req.body;

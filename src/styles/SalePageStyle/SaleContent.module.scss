@@ -4,6 +4,7 @@
 }
 
 .content {
+    position: relative;
     min-height: 1800px;
     background-color: #191919;
     &_wrapper {
@@ -11,6 +12,38 @@
         grid-template-columns: 318px 953px;
         column-gap: 48px;
     }
+    .owner_btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 5px;
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        border-radius: 50px;
+        background-color: #ff8400;
+        bottom: 50px;
+        right: 100px;
+        cursor: pointer;
+        transition: 0.25s all;
+        span {
+            width: 31px;
+            height: 5px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            &:nth-child(1) {
+                transform: translateY(6px) rotate(90deg);
+            }
+            &:nth-child(2) {
+                transform: translateY(-4px);
+            }
+        }
+        &_active {
+            transform: rotate(45deg);
+        }
+    }
+
 }
 
 
