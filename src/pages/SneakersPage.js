@@ -1,9 +1,11 @@
-import { Fragment } from "react"
+import { Fragment, useState } from "react"
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import Header from "./salepage/Header";
 import styles from "../styles/SneakersPage.module.scss"
+import PaymentCard from "./salepage/PaymentCard";
 
 const SneakersPage = function() {
+    const [isPaymentActive, setIsPaymentActive] = useState(false)
 
     const location = useLocation();
     const product = location.state;
@@ -35,28 +37,31 @@ const SneakersPage = function() {
                         </div>
                     </div>
 
-                    <div className={styles.sneakers_info}>
-                        <h2>{product.title}</h2>
-                        <h3>{product.subtitle}</h3>
-                        <img className={styles.starts} src='./images/starts.png' alt="" />
-                        <p className={styles.saller}>seller: <a href="/sneakers">Tonny H</a></p>
-                        <ul className={styles.sizes}>
-                            <li>38</li>
-                            <li>39</li>
-                            <li>40</li>
-                            <li>41</li>
-                            <li>42</li>
-                            <li>43</li>
-                            <li>44</li>
-                            <li>45</li>
-                        </ul>
-                        <p className={styles.returns}>
-                            <img src="./images/return.svg" alt="" />
-                            Returns Within 14 Days
-                        </p>
-                        <p className={styles.price}>{product.price}$</p>
-                        <button>BUY</button>
-                    </div>
+                    {!isPaymentActive && (
+                        <div className={styles.sneakers_info}>
+                            <h2>{product.title}</h2>
+                            <h3>{product.subtitle}</h3>
+                            <img className={styles.starts} src='./images/starts.png' alt="" />
+                            <p className={styles.saller}>seller: <a href="/sneakers">Tonny H</a></p>
+                            <ul className={styles.sizes}>
+                                <li>38</li>
+                                <li>39</li>
+                                <li>40</li>
+                                <li>41</li>
+                                <li>42</li>
+                                <li>43</li>
+                                <li>44</li>
+                                <li>45</li>
+                            </ul>
+                            <p className={styles.returns}>
+                                <img src="./images/return.svg" alt="" />
+                                Returns Within 14 Days
+                            </p>
+                            <p className={styles.price}>{product.price}$</p>
+                            <button onClick={(e) => setIsPaymentActive(!isPaymentActive)}>BUY</button>
+                        </div>
+                    )}
+                    {isPaymentActive && <PaymentCard />}
                 </div>
 
                 <div className={styles.sneakers_comments}>

@@ -1,0 +1,61 @@
+.card {
+    max-width: 400px;
+    margin: 40px auto;
+    font-family: Arial, sans-serif;
+    &_preview {
+        background: linear-gradient(to right, #374151, #1f2937);
+        color: white;
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    &_number {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+        letter-spacing: 2px;
+    }
+    &_info {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9rem;
+    }
+    &_form {
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 6px 0;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 12px;
+            background-color: #10b981;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            cursor: pointer;
+            &:hover {
+                background-color: #059669;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        margin-top: 100px;
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        margin-top: 50px;
+    }
+}
+  
+  
