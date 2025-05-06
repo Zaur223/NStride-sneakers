@@ -40,7 +40,11 @@
             }
         }
         &_active {
-            transform: rotate(45deg);
+            background-color: #ffffff;
+            transform: rotate(135deg);
+            span {
+                background-color: #ff8400;
+            }
         }
     }
 

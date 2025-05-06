@@ -130,6 +130,7 @@ const Header = function() {
                                     {cardList.map((obj, index) => (
                                         <ProductsList 
                                             key={`${obj.id} ${index}`}
+                                            id={obj.id}
                                             imgURL={obj.imgURL}
                                             title={obj.title}
                                             price={obj.price}
@@ -146,6 +147,7 @@ const Header = function() {
                                     {favoriteList.map((obj, index) => (
                                         <ProductsList 
                                             key={`${obj.id} ${index}`}
+                                            id={obj.id}
                                             imgURL={obj.imgURL}
                                             title={obj.title}
                                             price={obj.price}

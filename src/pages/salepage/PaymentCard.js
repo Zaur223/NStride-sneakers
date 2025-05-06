@@ -15,8 +15,6 @@ const PaymentCard = function() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert('Оплата успешно отправлена (визуально)!');
-    console.log(formData);
   };
 
   return (

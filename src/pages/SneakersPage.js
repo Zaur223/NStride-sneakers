@@ -3,12 +3,23 @@ import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import Header from "./salepage/Header";
 import styles from "../styles/SneakersPage.module.scss"
 import PaymentCard from "./salepage/PaymentCard";
+import UserInfo from "./UserInfo";
 
 const SneakersPage = function() {
     const [isPaymentActive, setIsPaymentActive] = useState(false)
+    const [isUserInfoActive, setIsUserInfoActive] = useState(false)
 
     const location = useLocation();
     const product = location.state;
+
+    const paymentHandler = () => {
+        setIsPaymentActive(prevIsPaymentActive => !prevIsPaymentActive)
+        setIsUserInfoActive(prevIsUserInfoActive => !prevIsUserInfoActive)
+    }
+
+    const hideUserInfo = () => {
+        setIsUserInfoActive(false);
+    }
 
     return (
         <Fragment>
@@ -58,7 +69,7 @@ const SneakersPage = function() {
                                 Returns Within 14 Days
                             </p>
                             <p className={styles.price}>{product.price}$</p>
-                            <button onClick={(e) => setIsPaymentActive(!isPaymentActive)}>BUY</button>
+                            <button onClick={paymentHandler}>BUY</button>
                         </div>
                     )}
                     {isPaymentActive && <PaymentCard />}
@@ -86,6 +97,7 @@ const SneakersPage = function() {
                     </ul>
                 </div>
             </div>
+            <UserInfo isUserInfoActive={isUserInfoActive} onHiddenUserInfo={hideUserInfo} />
         </Fragment>
     )
 }
