@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from '../../styles/SalePageStyle/PaymentCard.module.scss';
 
-const PaymentCard = function() {
+const PaymentCard = function(props) {
   const [formData, setFormData] = useState({
     cardNumber: '',
     name: '',
@@ -15,6 +15,7 @@ const PaymentCard = function() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    props.onIsOrderActive(true)
   };
 
   return (

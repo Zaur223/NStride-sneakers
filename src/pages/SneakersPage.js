@@ -4,25 +4,58 @@ import Header from "./salepage/Header";
 import styles from "../styles/SneakersPage.module.scss"
 import PaymentCard from "./salepage/PaymentCard";
 import UserInfo from "./UserInfo";
+import Order from "./Order";
 
 const SneakersPage = function() {
     const [isPaymentActive, setIsPaymentActive] = useState(false)
     const [isUserInfoActive, setIsUserInfoActive] = useState(false)
+    const [userData, setUserData] = useState({})
+    const [isOrderListActive, setIsOrderListActive] = useState(false)
+    const [comments, setComments] = useState([]);
+    const [commentText, setCommentText] = useState('');
 
     const location = useLocation();
     const product = location.state;
 
     const paymentHandler = () => {
-        setIsPaymentActive(prevIsPaymentActive => !prevIsPaymentActive)
-        setIsUserInfoActive(prevIsUserInfoActive => !prevIsUserInfoActive)
+        setIsUserInfoActive(true);
     }
 
     const hideUserInfo = () => {
         setIsUserInfoActive(false);
     }
 
+    const userInfoHandler = (info) => {
+        setUserData(info)
+        setIsPaymentActive(true)
+    }
+
+    const orderHandle = (e) => {
+        setIsOrderListActive(true)
+    }
+
+    const cancelHandler = (e) => {
+        setIsOrderListActive(e)
+    }
+
+    const formHandler = (e) => {
+        e.preventDefault();
+        if (!commentText.trim()) return;
+
+        const user = JSON.parse(localStorage.getItem('user')) || { username: 'Anonymous' };
+      
+        const newComment = {
+          date: new Date().toLocaleDateString('tr-TR'),
+          name: user.username,
+          text: commentText.trim(),
+        };
+      
+        setComments([newComment, ...comments]);
+        setCommentText('');
+      };
+
     return (
-        <Fragment>
+        <>
             <Header />
             <div className={styles.container}>
                 <div className={styles.sneakers}>
@@ -72,33 +105,38 @@ const SneakersPage = function() {
                             <button onClick={paymentHandler}>BUY</button>
                         </div>
                     )}
-                    {isPaymentActive && <PaymentCard />}
+                    {isPaymentActive && <PaymentCard onIsOrderActive={orderHandle} />}
                 </div>
 
                 <div className={styles.sneakers_comments}>
                     <h2 className={styles['sneakers_comments-title']}>Comments</h2>
-                    <form>
-                        <input className={styles['sneakers_comments-input']} type="text" placeholder="Write a comment" />
+                    <form onSubmit={formHandler}>
+                    <input
+                        className={styles['sneakers_comments-input']}
+                        type="text"
+                        placeholder="Write a comment"
+                        value={commentText}
+                        onChange={(e) => setCommentText(e.target.value)}
+                    />
                         <button className={styles['sneakers_comments-btn']}>post a comment</button>
                     </form>
 
                     <ul className={styles['sneakers_comments-users']}>
-                        <li className={styles['sneakers_comments-user']}>
-                            <p className={styles['sneakers_comments-date']}>04.05.2025</p>
-                            <p className={styles['sneakers_comments-name']}>J****</p>
-                            <p className={styles['sneakers_comments-text']}>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
-                        </li>
-
-                        <li className={styles['sneakers_comments-user']}>
-                            <p className={styles['sneakers_comments-date']}>03.08.2025</p>
-                            <p className={styles['sneakers_comments-name']}>A*******</p>
-                            <p className={styles['sneakers_comments-text']}>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, dummy text ever since the 1500s,</p>
-                        </li>
+                        {comments.map((comment, index) => (
+                            <li key={index} className={styles['sneakers_comments-user']}>
+                            <p className={styles['sneakers_comments-date']}>{comment.date}</p>
+                            <p className={styles['sneakers_comments-name']}>
+                                {comment.name[0] + '*'.repeat(comment.name.length - 1)}
+                            </p>
+                            <p className={styles['sneakers_comments-text']}>{comment.text}</p>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </div>
-            <UserInfo isUserInfoActive={isUserInfoActive} onHiddenUserInfo={hideUserInfo} />
-        </Fragment>
+            <UserInfo isUserInfoActive={isUserInfoActive} onHiddenUserInfo={hideUserInfo} onUserInfo={userInfoHandler} />
+            {isOrderListActive && <Order userData={userData} onCancel={cancelHandler} />}
+        </>
     )
 }
 
